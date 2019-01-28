@@ -1,0 +1,22 @@
+language: elixir
+install: true
+sudo: false
+elixir:
+  - '1.7.4'
+before_script:
+  - "mix local.hex --force"
+  - "mix local.rebar --force"
+  - "mix deps.get"
+
+after_success:
+  - mix compile
+  - mix coveralls.travis
+
+otp_release:
+  - '21.0'
+cache:
+  directories:
+    - _build
+    - deps
+services:
+  - docker
