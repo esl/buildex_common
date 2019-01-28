@@ -1,7 +1,7 @@
-defmodule Buildix.Common.Tasks.Helpers.TempStoreTest do
+defmodule Buildex.Common.Tasks.Helpers.TempStoreTest do
   use ExUnit.Case, async: false
 
-  alias Buildix.Common.Tasks.Helpers.TempStore
+  alias Buildex.Common.Tasks.Helpers.TempStore
 
   @moduletag :integration
 

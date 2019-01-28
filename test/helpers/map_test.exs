@@ -1,7 +1,7 @@
-defmodule Buildix.Common.Helpers.MapTest do
+defmodule Buildex.Common.Helpers.MapTest do
   use ExUnit.Case, async: false
 
-  alias Buildix.Common.Helpers.Map, as: HelperMap
+  alias Buildex.Common.Helpers.Map, as: HelperMap
 
   test "safely maps the keys of a map into existing atoms" do
     map = %{

@@ -1,8 +1,8 @@
-defmodule Buildix.Common.Services.Database do
-  alias Buildix.Common.Repos.Repo
-  alias Buildix.Common.Tags.Tag
-  alias Buildix.Common.Tasks.Task
-  alias Buildix.Common.Config
+defmodule Buildex.Common.Services.Database do
+  alias Buildex.Common.Repos.Repo
+  alias Buildex.Common.Tags.Tag
+  alias Buildex.Common.Tasks.Task
+  alias Buildex.Common.Config
 
   @type repository :: %{
           polling_interval: non_neg_integer(),
@@ -116,14 +116,14 @@ defmodule Buildix.Common.Services.Database do
 
       # Converts "docker_build" into "DockerBuild"
       runner = Macro.camelize(runner)
-      # Converts "docker_build" into Buildix.Common.Tasks.Runners.DockerBuild
-      runner_module = Module.concat([Buildix.Common.Tasks.Runners, runner])
+      # Converts "docker_build" into Buildex.Common.Tasks.Runners.DockerBuild
+      runner_module = Module.concat([Buildex.Common.Tasks.Runners, runner])
 
       source_module =
         if source do
           source = Macro.camelize(source)
-          # Converts "github" into Buildix.Common.Tasks.Sources.Github
-          Module.concat([Buildix.Common.Tasks.Sources, source])
+          # Converts "github" into Buildex.Common.Tasks.Sources.Github
+          Module.concat([Buildex.Common.Tasks.Sources, source])
         end
 
       env = Map.to_list(env_map)

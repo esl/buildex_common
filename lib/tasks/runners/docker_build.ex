@@ -1,10 +1,10 @@
-defmodule Buildix.Common.Tasks.Runners.DockerBuild do
-  @behaviour Buildix.Common.Tasks.Runners.Runner
+defmodule Buildex.Common.Tasks.Runners.DockerBuild do
+  @behaviour Buildex.Common.Tasks.Runners.Runner
 
   require Logger
 
   alias ExDockerBuild.{DockerfileParser, DockerBuild}
-  alias Buildix.Common.Tasks.Task
+  alias Buildex.Common.Tasks.Task
 
   @impl true
   def exec(task, env) do

@@ -1,4 +1,4 @@
-defmodule Buildix.Common.Helpers.Map do
+defmodule Buildex.Common.Helpers.Map do
   @moduledoc """
   A set of helper functions for working with `maps`
   """

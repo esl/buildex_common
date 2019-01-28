@@ -1,9 +1,9 @@
-defmodule Buildix.Common.Jobs.NewReleaseJob.Test do
+defmodule Buildex.Common.Jobs.NewReleaseJob.Test do
   use ExUnit.Case, async: false
 
-  alias Buildix.Common.Jobs.NewReleaseJob
-  alias Buildix.Common.Repos.Repo
-  alias Buildix.Common.Tags.Tag
+  alias Buildex.Common.Jobs.NewReleaseJob
+  alias Buildex.Common.Repos.Repo
+  alias Buildex.Common.Tags.Tag
 
   test "creates a single new release job" do
     repo = Repo.new("https://github.com/elixir-lang/elixir")

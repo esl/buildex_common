@@ -1,29 +1,29 @@
-defmodule Buildix.Common.Services.DatabaseTest do
+defmodule Buildex.Common.Services.DatabaseTest do
   use ExUnit.Case, async: false
   import Mox
 
-  alias Buildix.Common.Services.Database
-  alias Buildix.Common.Repos.Repo
-  alias Buildix.Common.Tags.Tag
-  alias Buildix.Common.Tasks.Task
+  alias Buildex.Common.Services.Database
+  alias Buildex.Common.Repos.Repo
+  alias Buildex.Common.Tags.Tag
+  alias Buildex.Common.Tasks.Task
 
   # Make sure mocks are verified when the test exits
   setup :verify_on_exit!
 
   setup do
-    Application.put_env(:domain, :rpc_impl, Buildix.Common.Service.Local)
+    Application.put_env(:domain, :rpc_impl, Buildex.Common.Service.Local)
   end
 
   describe "get_all_repositories/0" do
     test "gets 0 repositories" do
-      Buildix.Common.Service.Local
+      Buildex.Common.Service.Local
       |> expect(:get_all_repositories, fn -> [] end)
 
       assert {:ok, []} = Database.get_all_repositories()
     end
 
     test "gets all repositories" do
-      Buildix.Common.Service.Local
+      Buildex.Common.Service.Local
       |> expect(:get_all_repositories, fn ->
         [
           %{
@@ -44,7 +44,7 @@ defmodule Buildix.Common.Services.DatabaseTest do
     end
 
     test "error getting repositories" do
-      Buildix.Common.Service.Local
+      Buildex.Common.Service.Local
       |> expect(:get_all_repositories, fn -> {:badrpc, :nodedown} end)
 
       assert {:error, :nodedown} = Database.get_all_repositories()
@@ -53,14 +53,14 @@ defmodule Buildix.Common.Services.DatabaseTest do
 
   describe "get_all_tags/1" do
     test "gets 0 tags" do
-      Buildix.Common.Service.Local
+      Buildex.Common.Service.Local
       |> expect(:get_all_tags, fn _ -> [] end)
 
       assert {:ok, []} = Database.get_all_tags("url")
     end
 
     test "gets all repo tags" do
-      Buildix.Common.Service.Local
+      Buildex.Common.Service.Local
       |> expect(:get_all_tags, fn _ ->
         [
           %{
@@ -91,7 +91,7 @@ defmodule Buildix.Common.Services.DatabaseTest do
     end
 
     test "error getting repo tags" do
-      Buildix.Common.Service.Local
+      Buildex.Common.Service.Local
       |> expect(:get_all_tags, fn _ -> {:badrpc, :nodedown} end)
 
       assert {:error, :nodedown} = Database.get_all_tags("url")
@@ -100,7 +100,7 @@ defmodule Buildix.Common.Services.DatabaseTest do
 
   describe "create_tag/2" do
     test "creates task successfully" do
-      Buildix.Common.Service.Local
+      Buildex.Common.Service.Local
       |> expect(:create_tag, fn _, _ ->
         {:ok, %{}}
       end)
@@ -109,14 +109,14 @@ defmodule Buildix.Common.Services.DatabaseTest do
     end
 
     test "error creating tag - badrpc" do
-      Buildix.Common.Service.Local
+      Buildex.Common.Service.Local
       |> expect(:create_tag, fn _, _ -> {:badrpc, :nodedown} end)
 
       assert {:error, :nodedown} = Database.create_tag("url", %Tag{name: "v1.6.6"})
     end
 
     test "error creating tag - error" do
-      Buildix.Common.Service.Local
+      Buildex.Common.Service.Local
       |> expect(:create_tag, fn _, _ -> {:error, :invalid} end)
 
       assert {:error, :invalid} = Database.create_tag("url", %Tag{name: "v1.6.6"})
@@ -125,14 +125,14 @@ defmodule Buildix.Common.Services.DatabaseTest do
 
   describe "get_repo_tasks/1" do
     test "get 0 tasks" do
-      Buildix.Common.Service.Local
+      Buildex.Common.Service.Local
       |> expect(:get_repo_tasks, fn _ -> [] end)
 
       assert {:ok, []} = Database.get_repo_tasks("url")
     end
 
     test "get all repo tasks" do
-      Buildix.Common.Service.Local
+      Buildex.Common.Service.Local
       |> expect(:get_repo_tasks, fn _ ->
         [
           %{
@@ -172,7 +172,7 @@ defmodule Buildix.Common.Services.DatabaseTest do
 
       assert %Task{
                id: 1,
-               runner: Buildix.Common.Tasks.Runners.DockerBuild,
+               runner: Buildex.Common.Tasks.Runners.DockerBuild,
                env: env,
                build_file_content: "This is a test.",
                ssh_key: "this is a key"
@@ -183,15 +183,15 @@ defmodule Buildix.Common.Services.DatabaseTest do
 
       assert %Task{
                id: 1,
-               runner: Buildix.Common.Tasks.Runners.Make,
-               source: Buildix.Common.Tasks.Sources.Github,
+               runner: Buildex.Common.Tasks.Runners.Make,
+               source: Buildex.Common.Tasks.Sources.Github,
                url: "https://github.com/f@k3/f@k3",
                commands: ["install", "build", "release"]
              } = task2
     end
 
     test "error getting repo tasks" do
-      Buildix.Common.Service.Local
+      Buildex.Common.Service.Local
       |> expect(:get_repo_tasks, fn _ -> {:badrpc, :nodedown} end)
 
       assert {:error, :nodedown} = Database.get_repo_tasks("url")

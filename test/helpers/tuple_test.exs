@@ -1,4 +1,4 @@
-defmodule Buildix.Common.Helpers.TupleTest do
+defmodule Buildex.Common.Helpers.TupleTest do
   use ExUnit.Case, async: false
 
   test "encodes tuple into list" do

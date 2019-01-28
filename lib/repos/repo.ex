@@ -1,11 +1,11 @@
-defmodule Buildix.Common.Repos.Repo do
+defmodule Buildex.Common.Repos.Repo do
   @moduledoc """
   Represents a dependency we rely on. for now it represents a Github repository
   """
 
   alias __MODULE__
-  alias Buildix.Common.Tags.Tag
-  alias Buildix.Common.Tasks.Task
+  alias Buildex.Common.Tags.Tag
+  alias Buildex.Common.Tasks.Task
 
   @derive {Poison.Encoder, except: [:tags, :adapter, :tasks]}
 

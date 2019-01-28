@@ -1,4 +1,4 @@
-defmodule Buildix.Common.Helpers.Tuple do
+defmodule Buildex.Common.Helpers.Tuple do
   @moduledoc """
   A set of helper functions for working with `tuples`
   """

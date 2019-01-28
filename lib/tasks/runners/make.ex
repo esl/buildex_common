@@ -1,5 +1,5 @@
-defmodule Buildix.Common.Tasks.Runners.Make do
-  alias Buildix.Common.Tasks.Runners.Runner
+defmodule Buildex.Common.Tasks.Runners.Make do
+  alias Buildex.Common.Tasks.Runners.Runner
 
   @behaviour Runner
 

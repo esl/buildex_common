@@ -1,4 +1,4 @@
-defmodule Buildix.Common.Tasks.Helpers.TempStore do
+defmodule Buildex.Common.Tasks.Helpers.TempStore do
   @moduledoc """
   A set of functions for helping store and generate path for tasks to be
   executed and stores in the $TMP directory depending on the OS

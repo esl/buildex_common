@@ -1,9 +1,9 @@
-defmodule Buildix.Common.Repos.RepoTest do
+defmodule Buildex.Common.Repos.RepoTest do
   use ExUnit.Case, async: false
 
-  alias Buildix.Common.Repos.Repo
-  alias Buildix.Common.Tags.Tag
-  alias Buildix.Common.Tasks.Task
+  alias Buildex.Common.Repos.Repo
+  alias Buildex.Common.Tags.Tag
+  alias Buildex.Common.Tasks.Task
 
   test "creates a new repo" do
     assert %Repo{

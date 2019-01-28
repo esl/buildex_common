@@ -1,10 +1,10 @@
-defmodule Buildix.Common.Tasks.Runners.MakeTest do
+defmodule Buildex.Common.Tasks.Runners.MakeTest do
   use ExUnit.Case, async: false
 
   import ExUnit.CaptureIO
 
-  alias Buildix.Common.Tasks.Task
-  alias Buildix.Common.Tasks.Runners.Make
+  alias Buildex.Common.Tasks.Task
+  alias Buildex.Common.Tasks.Runners.Make
 
   @moduletag :integration
 

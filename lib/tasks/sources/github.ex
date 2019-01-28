@@ -1,8 +1,8 @@
-defmodule Buildix.Common.Tasks.Sources.Github do
-  alias Buildix.Common.Tasks.Sources.Source
+defmodule Buildex.Common.Tasks.Sources.Github do
+  alias Buildex.Common.Tasks.Sources.Source
   @behaviour Source
 
-  alias Buildix.Common.Tasks.Helpers.TempStore
+  alias Buildex.Common.Tasks.Helpers.TempStore
 
   @doc """
   Clones a repository from the given URL and stores it in the given `base_dir`ectory.

@@ -1,4 +1,4 @@
-defmodule Buildix.Common.Tasks.Task do
+defmodule Buildex.Common.Tasks.Task do
   @moduledoc """
   Represents the task that is going to be executed when there is a new release of
   a repository.
@@ -8,8 +8,8 @@ defmodule Buildix.Common.Tasks.Task do
   which is going to have access to the new release tag as a environment variable
   and a list of environment variables assigned via its `env` attribute.
 
-  It is going to be executed by a `runner` module, defaults to: `Buildix.Common.Tasks.Runners.Make`,
-  and its going to be downloaded by a `source` module, defaults to `Buildix.Common.Tasks.Sources.Github`.
+  It is going to be executed by a `runner` module, defaults to: `Buildex.Common.Tasks.Runners.Make`,
+  and its going to be downloaded by a `source` module, defaults to `Buildex.Common.Tasks.Sources.Github`.
 
   The task can contain multiple commands:
 
@@ -19,8 +19,8 @@ defmodule Buildix.Common.Tasks.Task do
       make -f Makefile deploy
   """
   alias __MODULE__
-  alias Buildix.Common.Tasks.Runners.Make
-  alias Buildix.Common.Tasks.Sources.Github
+  alias Buildex.Common.Tasks.Runners.Make
+  alias Buildex.Common.Tasks.Sources.Github
 
   @type runner :: module()
   # TODO: add support for other sources e.g GitLab etc

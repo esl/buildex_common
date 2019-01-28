@@ -1,10 +1,10 @@
-defmodule Buildix.Common.Jobs.NewReleaseJob do
+defmodule Buildex.Common.Jobs.NewReleaseJob do
   @moduledoc """
   RabbitMQ Job Struct for enqueuing a new release for a given repository
   """
 
-  alias Buildix.Common.Repos.Repo
-  alias Buildix.Common.Tags.Tag
+  alias Buildex.Common.Repos.Repo
+  alias Buildex.Common.Tags.Tag
   alias __MODULE__
 
   @derive [Poison.Encoder]

@@ -1,5 +1,5 @@
-defmodule Buildix.Common.Config do
-  alias Buildix.Common.Services.RPC
+defmodule Buildex.Common.Config do
+  alias Buildex.Common.Services.RPC
 
   def get_admin_domain do
     Application.get_env(:domain, :admin_domain, :"admin@127.0.0.1")

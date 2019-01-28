@@ -1,9 +1,9 @@
-defmodule Buildix.Common.Tasks.TaskTest do
+defmodule Buildex.Common.Tasks.TaskTest do
   use ExUnit.Case, async: false
 
-  alias Buildix.Common.Tasks.Task
-  alias Buildix.Common.Tasks.Runners.Make
-  alias Buildix.Common.Tasks.Sources.Github
+  alias Buildex.Common.Tasks.Task
+  alias Buildex.Common.Tasks.Runners.Make
+  alias Buildex.Common.Tasks.Sources.Github
 
   test "creates a new task" do
     make_url = "https://github.com/elixir-lang/elixir"

@@ -1,10 +1,10 @@
-defmodule Buildix.Common.Serializers.NewReleaseJobSerializer.Test do
+defmodule Buildex.Common.Serializers.NewReleaseJobSerializer.Test do
   use ExUnit.Case, async: false
 
-  alias Buildix.Common.Serializers.NewReleaseJobSerializer, as: JobSerializer
-  alias Buildix.Common.Jobs.NewReleaseJob
-  alias Buildix.Common.Repos.Repo
-  alias Buildix.Common.Tags.Tag
+  alias Buildex.Common.Serializers.NewReleaseJobSerializer, as: JobSerializer
+  alias Buildex.Common.Jobs.NewReleaseJob
+  alias Buildex.Common.Repos.Repo
+  alias Buildex.Common.Tags.Tag
 
   setup do
     repo = Repo.new("https://github.com/elixir-lang/elixir")

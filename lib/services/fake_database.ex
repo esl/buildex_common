@@ -1,5 +1,5 @@
-defmodule Buildix.Common.Services.FakeDatabase do
-  alias Buildix.Common.Services.Database
+defmodule Buildex.Common.Services.FakeDatabase do
+  alias Buildex.Common.Services.Database
   @behaviour Database
 
   @impl true

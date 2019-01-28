@@ -1,20 +1,12 @@
-defmodule Domain.MixProject do
+defmodule Buildex.Common.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :domain,
+      app: :buildex_common,
       version: "0.1.0",
       elixir: "~> 1.7",
-      start_permanent: Mix.env() == :prod,
       deps: deps()
-    ]
-  end
-
-  # Run "mix help compile.app" to learn about applications.
-  def application do
-    [
-      extra_applications: [:logger]
     ]
   end
 

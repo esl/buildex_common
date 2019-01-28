@@ -1,10 +1,10 @@
-defmodule Buildix.Common.Serializers.NewReleaseJobSerializer do
+defmodule Buildex.Common.Serializers.NewReleaseJobSerializer do
   @moduledoc """
   JSON Serializer and Deserializer for `NewReleaseJob`
   """
-  alias Buildix.Common.Repos.Repo
-  alias Buildix.Common.Tags.Tag
-  alias Buildix.Common.Jobs.NewReleaseJob
+  alias Buildex.Common.Repos.Repo
+  alias Buildex.Common.Tags.Tag
+  alias Buildex.Common.Jobs.NewReleaseJob
 
   @spec serialize!(NewReleaseJob.t()) :: iodata() | no_return()
   def serialize!(%NewReleaseJob{} = job) do

@@ -1,9 +1,9 @@
-defmodule Buildix.Common.Tasks.Runners.DockerBuildTest do
+defmodule Buildex.Common.Tasks.Runners.DockerBuildTest do
   use ExUnit.Case, async: false
   import Mimic
 
-  alias Buildix.Common.Tasks.Runners.DockerBuild
-  alias Buildix.Common.Tasks.Task
+  alias Buildex.Common.Tasks.Runners.DockerBuild
+  alias Buildex.Common.Tasks.Task
 
   @moduletag :integration
 

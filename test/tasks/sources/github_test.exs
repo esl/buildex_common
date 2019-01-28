@@ -1,10 +1,10 @@
-defmodule Buildix.Common.Tasks.Sources.GithubTest do
+defmodule Buildex.Common.Tasks.Sources.GithubTest do
   use ExUnit.Case, async: false
 
   import ExUnit.CaptureIO
 
-  alias Buildix.Common.Tasks.Task
-  alias Buildix.Common.Tasks.Sources.Github
+  alias Buildex.Common.Tasks.Task
+  alias Buildex.Common.Tasks.Sources.Github
 
   @moduletag :integration
   @repo_url "https://github.com/elixir-lang/elixir"

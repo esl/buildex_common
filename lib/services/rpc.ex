@@ -1,6 +1,6 @@
-defmodule Buildix.Common.Services.RPC do
-  alias Buildix.Common.Config
-  alias Buildix.Common.Repos.Repo
+defmodule Buildex.Common.Services.RPC do
+  alias Buildex.Common.Config
+  alias Buildex.Common.Repos.Repo
 
   @callback get_all_repositories() :: any() | {:badrpc, any()}
   @callback get_all_tags(String.t()) :: any() | {:badrpc, any()}
