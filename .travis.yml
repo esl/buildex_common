@@ -13,7 +13,7 @@ after_success:
   - MIX_ENV=test mix coveralls.travis
 
 otp_release:
-  - '21.0'
+  - '21.0.9'
 cache:
   directories:
     - _build
