@@ -1,2 +1,3 @@
-# buildex_common
-Modules shared by buildex projects
+# buildex_common 
+
+Common utilities and domain objects for the buildex project.

@@ -1,0 +1,19 @@
+defmodule Buildix.Common.Helpers.Tuple do
+  @moduledoc """
+  A set of helper functions for working with `tuples`
+  """
+
+  # Implements `Poison.Encoder` for `Tuple`
+  defimpl Poison.Encoder, for: Tuple do
+    @doc """
+    Converts a key-value `tuple` into a 2 element list for ease of encoding
+    """
+    def encode({key, value}, _options) when is_binary(key) do
+      Poison.encode!([key, value])
+    end
+
+    def encode(tuple, _options) do
+      raise Poison.EncodeError, value: tuple
+    end
+  end
+end
