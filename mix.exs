@@ -7,7 +7,19 @@ defmodule Buildex.Common.MixProject do
       deps: deps(),
       elixir: "~> 1.7",
       test_coverage: [tool: ExCoveralls],
-      version: "0.0.1"
+      version: "0.0.1",
+      organization: "esl",
+      description: "Common utilities and domain objects for the buildex project",
+            package: package(),
+      source_url: "https://github.com/esl/buildex_common",
+    ]
+  end
+
+  defp package() do 
+    [
+      files: ~w(lib .formatter.exs mix.exs README.md LICENSE),
+      licenses: ["Apache 2"],
+      links: %{"GitHub" => "https://github.com/esl/buildex_common"}
     ]
   end
 

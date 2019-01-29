@@ -5,3 +5,8 @@
 [![Build Status](https://travis-ci.com/esl/buildex_common.svg?branch=master)](https://travis-ci.com/esl/buildex_common)
 
 Common utilities and domain objects for the buildex project.
+
+[HexDocs](https://hexdocs.pm/buildex_common)
+[Hex.pm](https://hex.pm/packages/buildex_common)
+
+
