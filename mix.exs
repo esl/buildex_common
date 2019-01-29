@@ -10,12 +10,12 @@ defmodule Buildex.Common.MixProject do
       version: "0.0.1",
       organization: "esl",
       description: "Common utilities and domain objects for the buildex project",
-            package: package(),
-      source_url: "https://github.com/esl/buildex_common",
+      package: package(),
+      source_url: "https://github.com/esl/buildex_common"
     ]
   end
 
-  defp package() do 
+  defp package() do
     [
       files: ~w(lib .formatter.exs mix.exs README.md LICENSE),
       licenses: ["Apache 2"],
