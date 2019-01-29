@@ -7,7 +7,7 @@ defmodule Buildex.Common.MixProject do
       deps: deps(),
       elixir: "~> 1.7",
       test_coverage: [tool: ExCoveralls],
-      version: "0.1.0"
+      version: "0.0.1"
     ]
   end
 
