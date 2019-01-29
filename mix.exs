@@ -17,7 +17,7 @@ defmodule Buildex.Common.MixProject do
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.18", only: :dev, runtime: false},
       {:ex_docker_build, "~> 0.6.0"},
-      {:excoveralls, "~> 0.8", only: [:dev, :test], runtime: false},
+      {:excoveralls, "~> 0.10.4", only: [:dev, :test], runtime: false},
       {:mimic, "~> 0.2", only: :test},
       {:mox, "~> 0.4", only: :test},
       {:poison, "~> 4.0"}

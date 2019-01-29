@@ -7,7 +7,7 @@ defmodule Buildex.Common.Tasks.Runners.DockerBuildTest do
 
   @moduletag :integration
 
-  @cwd System.cwd!()
+  @cwd File.cwd!()
   @file_path Path.join([@cwd, "myfile.txt"])
 
   setup :verify_on_exit!

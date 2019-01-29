@@ -11,7 +11,7 @@ defmodule Buildex.Common.Tasks.Runners.MakeTest do
   setup do
     n = :rand.uniform(100)
     # create random directory so it can run concurrently
-    base_dir = Path.join([System.cwd!(), "test", "fixtures", "runners", to_string(n)])
+    base_dir = Path.join([File.cwd!(), "test", "fixtures", "runners", to_string(n)])
     File.mkdir_p!(base_dir)
 
     on_exit(fn ->
