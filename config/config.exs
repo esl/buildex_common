@@ -2,4 +2,4 @@ use Mix.Config
 
 config :buildex_common, :rpc_impl, Buildex.Common.Services.RPC
 
-import_config "#{Mix.env()}.exs"
+config :buildex_common, :admin_node, :"admin@127.0.0.1"
