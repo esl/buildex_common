@@ -5,9 +5,6 @@
 Takes the following configuration : 
 
 ```
-# 
-config :buildex_common, :rpc_impl, RPC
-
 config :buildex_common, :admin_node, :"admin@127.0.0.1"
 ```
 
