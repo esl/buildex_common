@@ -11,19 +11,20 @@ defmodule Buildex.Common.Services.DatabaseTest do
   setup :verify_on_exit!
 
   setup do
-    Application.put_env(:domain, :rpc_impl, Buildex.Common.Service.Local)
+    Application.put_env(:buildex_common, :rpc_impl, Buildex.Common.Service.RPC_Mock)
+    :ok
   end
 
   describe "get_all_repositories/0" do
     test "gets 0 repositories" do
-      Buildex.Common.Service.Local
-      |> expect(:get_all_repositories, fn -> [] end)
+      Buildex.Common.Service.RPC_Mock
+      |> stub(:get_all_repositories, fn -> [] end)
 
       assert {:ok, []} = Database.get_all_repositories()
     end
 
     test "gets all repositories" do
-      Buildex.Common.Service.Local
+      Buildex.Common.Service.RPC_Mock
       |> expect(:get_all_repositories, fn ->
         [
           %{
@@ -44,7 +45,7 @@ defmodule Buildex.Common.Services.DatabaseTest do
     end
 
     test "error getting repositories" do
-      Buildex.Common.Service.Local
+      Buildex.Common.Service.RPC_Mock
       |> expect(:get_all_repositories, fn -> {:badrpc, :nodedown} end)
 
       assert {:error, :nodedown} = Database.get_all_repositories()
@@ -53,14 +54,14 @@ defmodule Buildex.Common.Services.DatabaseTest do
 
   describe "get_all_tags/1" do
     test "gets 0 tags" do
-      Buildex.Common.Service.Local
+      Buildex.Common.Service.RPC_Mock
       |> expect(:get_all_tags, fn _ -> [] end)
 
       assert {:ok, []} = Database.get_all_tags("url")
     end
 
     test "gets all repo tags" do
-      Buildex.Common.Service.Local
+      Buildex.Common.Service.RPC_Mock
       |> expect(:get_all_tags, fn _ ->
         [
           %{
@@ -91,7 +92,7 @@ defmodule Buildex.Common.Services.DatabaseTest do
     end
 
     test "error getting repo tags" do
-      Buildex.Common.Service.Local
+      Buildex.Common.Service.RPC_Mock
       |> expect(:get_all_tags, fn _ -> {:badrpc, :nodedown} end)
 
       assert {:error, :nodedown} = Database.get_all_tags("url")
@@ -100,7 +101,7 @@ defmodule Buildex.Common.Services.DatabaseTest do
 
   describe "create_tag/2" do
     test "creates task successfully" do
-      Buildex.Common.Service.Local
+      Buildex.Common.Service.RPC_Mock
       |> expect(:create_tag, fn _, _ ->
         {:ok, %{}}
       end)
@@ -109,14 +110,14 @@ defmodule Buildex.Common.Services.DatabaseTest do
     end
 
     test "error creating tag - badrpc" do
-      Buildex.Common.Service.Local
+      Buildex.Common.Service.RPC_Mock
       |> expect(:create_tag, fn _, _ -> {:badrpc, :nodedown} end)
 
       assert {:error, :nodedown} = Database.create_tag("url", %Tag{name: "v1.6.6"})
     end
 
     test "error creating tag - error" do
-      Buildex.Common.Service.Local
+      Buildex.Common.Service.RPC_Mock
       |> expect(:create_tag, fn _, _ -> {:error, :invalid} end)
 
       assert {:error, :invalid} = Database.create_tag("url", %Tag{name: "v1.6.6"})
@@ -125,14 +126,14 @@ defmodule Buildex.Common.Services.DatabaseTest do
 
   describe "get_repo_tasks/1" do
     test "get 0 tasks" do
-      Buildex.Common.Service.Local
+      Buildex.Common.Service.RPC_Mock
       |> expect(:get_repo_tasks, fn _ -> [] end)
 
       assert {:ok, []} = Database.get_repo_tasks("url")
     end
 
     test "get all repo tasks" do
-      Buildex.Common.Service.Local
+      Buildex.Common.Service.RPC_Mock
       |> expect(:get_repo_tasks, fn _ ->
         [
           %{
@@ -191,7 +192,7 @@ defmodule Buildex.Common.Services.DatabaseTest do
     end
 
     test "error getting repo tasks" do
-      Buildex.Common.Service.Local
+      Buildex.Common.Service.RPC_Mock
       |> expect(:get_repo_tasks, fn _ -> {:badrpc, :nodedown} end)
 
       assert {:error, :nodedown} = Database.get_repo_tasks("url")

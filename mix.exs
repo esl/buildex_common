@@ -25,7 +25,6 @@ defmodule Buildex.Common.MixProject do
 
   defp deps do
     [
-      # {:credo, "~> 0.9.1", only: [:dev, :test]},
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.18", only: :dev, runtime: false},
       {:ex_docker_build, "~> 0.6.0"},
