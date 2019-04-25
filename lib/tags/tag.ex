@@ -2,7 +2,6 @@ defmodule Buildex.Common.Tags.Tag do
   @moduledoc """
   Represents the new `tags` or `releases` of a Github repository
   """
-  alias Buildex.Common.Helpers.Map, as: HelperMap
   alias __MODULE__
 
   @derive [Poison.Encoder]
@@ -23,7 +22,7 @@ defmodule Buildex.Common.Tags.Tag do
 
   @spec new(attrs) :: Tag.t() | no_return() when attrs: %{required(:name) => Version.t()}
   def new(attrs) do
-    new_attrs = HelperMap.safe_map_keys_to_atom(attrs)
+    new_attrs = Morphix.atomorphify(attrs, Map.keys(Map.from_struct(__MODULE__)))
     struct!(__MODULE__, new_attrs)
   end
 
