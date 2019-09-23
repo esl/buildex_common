@@ -13,16 +13,16 @@ defmodule Buildex.Common.Services.RPC do
   end
 
   def get_all_tags(url) do
-    Config.get_admin_node() |> :rpc.call(Buildex.API.Repository.Service, :repo_tags, [url])
+    Config.get_admin_node() |> :rpc.call(Buildex.API.Tag.Service, :repo_tags, [url])
   end
 
   def create_tag(url, tag) do
     Config.get_admin_node()
-    |> :rpc.call(Buildex.API.Repository.Service, :create_tag, [url, tag])
+    |> :rpc.call(Buildex.API.Tag.Service, :create_tag, [url, tag])
   end
 
   def get_repo_tasks(url) do
     Config.get_admin_node()
-    |> :rpc.call(Buildex.API.Repository.Service, :repo_tasks, [url])
+    |> :rpc.call(Buildex.API.Task.Service, :repo_tasks, [url])
   end
 end
